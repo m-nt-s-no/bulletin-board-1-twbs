@@ -1,53 +1,55 @@
-<div class="row>
-  <div class="col-sm-4"></div>
-  <div class="col-sm-4">
-    <div class="card">
-      <div class="card-header">
-        <div class="d-flex justify-content-between">
-          <h6>
-            All boards
-          </h6>
+<div class="container">
+  <div class="row>
+    <div class="col-md-3></div>
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-header">
+          <div class="d-flex justify-content-between">
+            <h6>
+              All boards
+            </h6>
 
-          <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#insertBoardModal">
-            Add a new board
-          </button>
+            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#insertBoardModal">
+              Add a new board
+            </button>
+          </div>
         </div>
-      </div>
-      <!-- modal not showing when button pressed -->
-      <div class="modal fade" id="insertBoardModal">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="newBoardModal">New board</h5>
-            </div>
-            <form action="/insert_board" method="post">
-              <div>
-                <label for="name_box">
-                  Name
-                </label>
-
-                <input type="text" id="name_box" name="query_name">
+        <!-- modal not showing when button pressed -->
+        <div class="modal fade" id="insertBoardModal">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="newBoardModal">New board</h5>
               </div>
-              <button class="btn btn-success">
-                Add board
-              </button>
-            </form>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              <form action="/insert_board" method="post">
+                <div>
+                  <label for="name_box">
+                    Name
+                  </label>
+
+                  <input type="text" id="name_box" name="query_name">
+                </div>
+                <button class="btn btn-success">
+                  Add board
+                </button>
+              </form>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              </div>
             </div>
           </div>
         </div>
+        <ul class="list-group list-group-flush">
+          <% @list_of_boards.each do |a_board| %>
+            <li class="list-group-item">
+              <a href="/boards/<%= a_board.id %>">
+                <%= a_board.name %>
+              </a>
+            </li>
+          <% end %>
+        </ul>
       </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <% @list_of_boards.each do |a_board| %>
-        <li class="list-group-item">
-          <a href="/boards/<%= a_board.id %>">
-            <%= a_board.name %>
-          </a>
-        </li>
-      <% end %>
-    </ul>
+    <div class="col-md-3"></div>
   </div>
-  <div class="col-sm-4"></div>
 </div>
