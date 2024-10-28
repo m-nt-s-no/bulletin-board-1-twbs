@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row>
-    <div class="col-md-3></div>
-    <div class="col-md-6 offset-md-3">
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
       <div class="card">
         <div class="card-header">
           <div class="d-flex justify-content-between">
@@ -9,12 +9,11 @@
               All boards
             </h6>
 
-            <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#insertBoardModal">
+            <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#insertBoardModal">
               Add a new board
             </button>
           </div>
         </div>
-        <!-- modal not showing when button pressed -->
         <div class="modal fade" id="insertBoardModal">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -22,12 +21,12 @@
                 <h5 class="modal-title" id="newBoardModal">New board</h5>
               </div>
               <form action="/insert_board" method="post">
-                <div>
-                  <label for="name_box">
+                <div class="mb-3">
+                  <label for="name_box" class="form-label">
                     Name
                   </label>
 
-                  <input type="text" id="name_box" name="query_name">
+                  <input type="text" id="name_box" name="query_name" class="form-control">
                 </div>
                 <button class="btn btn-success">
                   Add board
@@ -41,8 +40,8 @@
         </div>
         <ul class="list-group list-group-flush">
           <% @list_of_boards.each do |a_board| %>
-            <li class="list-group-item">
-              <a href="/boards/<%= a_board.id %>">
+            <li class="list-group-item list-group-item-action">
+              <a class="link-dark underline-opacity-0" href="/boards/<%= a_board.id %>">
                 <%= a_board.name %>
               </a>
             </li>
