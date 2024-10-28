@@ -19,19 +19,23 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="newBoardModal">New board</h5>
+                <button class="btn-close" data-bs-dismiss="modal"></button>
               </div>
-              <form action="/insert_board" method="post">
-                <div class="mb-3">
-                  <label for="name_box" class="form-label">
-                    Name
-                  </label>
-
-                  <input type="text" id="name_box" name="query_name" class="form-control">
-                </div>
-                <button class="btn btn-success">
-                  Add board
-                </button>
-              </form>
+              <div class="modal-body">
+                <form action="/insert_board" method="post">
+                  <div class="mb-3">
+                    <label for="name_box" class="form-label">
+                      Name
+                    </label>
+                    <input type="text" id="name_box" name="query_name" class="form-control">
+                  </div>
+                  <div class="d-grid">
+                    <button class="btn btn-success">
+                      Add board
+                    </button>
+                  </div>
+                </form>
+              </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
               </div>
