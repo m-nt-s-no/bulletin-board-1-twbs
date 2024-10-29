@@ -1,48 +1,55 @@
 <div>
-  <div>
+  <div class="d-flex justify-content-between">
     <h1>
       <%= @the_board.name %>
     </h1>
+    <button type="button" class="btn btn-outline-success btn-sm ms-auto" data-bs-toggle="modal" data-bs-target="#newPostModal">
+      Add new post
+    </button>
   </div>
 </div>
 
-<hr>
-
-<h2>
-  Add a new post
-</h2>
-
-<form action="/insert_post" method="post">
-  <div>
-    <label for="title_box">
-      Title
-    </label>
-
-    <input type="text" id="title_box" name="query_title">
+<div class="modal fade" id="newPostModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <h5 class="modal-title" id="newBoardModal">New post</h5>
+          <button class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form action="/insert_post" method="post">
+          <div class="mb-3">
+            <label for="title_box">
+              Title
+            </label>
+            <input type="text" id="title_box" name="query_title" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="body_box">
+              Body
+            </label>
+            <textarea id="body_box" name="query_body" rows="3" class="form-control"></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="expires_on_box">
+              Expires on
+            </label>
+            <input type="date" id="expires_on_box" name="query_expires_on" class="form-control">
+          </div>
+          <input type="hidden" id="board_id_box" name="query_board_id" value="<%= @the_board.id %>">
+          <div class="d-grid">
+            <button class="btn btn-primary">
+              Add post
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
   </div>
-
-  <div>
-    <label for="body_box">
-      Body
-    </label>
-
-    <textarea id="body_box" name="query_body" rows="3"></textarea>
-  </div>
-
-  <div>
-    <label for="expires_on_box">
-      Expires on
-    </label>
-
-    <input type="date" id="expires_on_box" name="query_expires_on">
-  </div>
-
-  <input type="hidden" id="board_id_box" name="query_board_id" value="<%= @the_board.id %>">
-
-  <button>
-    Add post
-  </button>
-</form>
+</div>
 
 <hr>
 
