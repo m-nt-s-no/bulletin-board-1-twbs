@@ -51,9 +51,14 @@
   </div>
 </div>
 
-<hr>
-
-<h2>Active posts</h2>
+<ul class="nav nav-tabs nav-fill" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="active-tab" data-bs-toggle="tab" data-bs-target="#active-posts" type="button" role="tab" aria-controls="active-posts" aria-selected="true">Active posts</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="expired-tab" data-bs-toggle="tab" data-bs-target="#expired-posts" type="button" role="tab" aria-controls="expired posts" aria-selected="false">Expired posts</button>
+    </li>
+</ul>
 
 <table border="1">
   <tr>
